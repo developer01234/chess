@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Board } from "../models/Board";
 
-const BoardComponent = () => {
-	return (
-		<div className='board'>
-			<div className='cell white'></div>
-			<div className='cell black'></div>
-			<div className='cell white'></div>
-			<div className='cell black'></div>
-		</div>
-	)
+interface BoardProps {
+  board: Board;
+  setBoard: (board: Board) => void;
 }
 
-export default BoardComponent
+const BoardComponent: FC<BoardProps> = ({ board, setBoard }) => {
+  return <div className="board">{board.cells.map()}</div>;
+};
+
+export default BoardComponent;
