@@ -4,7 +4,7 @@ import BoardComponent from "./components/BoardComponent";
 import { Board } from "./models/Board";
 
 const App = () => {
-  const [board, setBoard] = useState();
+  const [board, setBoard] = useState(new Board());
 
   useEffect(() => {
     restart();
@@ -13,12 +13,13 @@ const App = () => {
   function restart() {
     const newBoard = new Board();
     newBoard.initCells();
+    newBoard.addFigures();
     setBoard(newBoard);
   }
 
   return (
     <div className="app">
-      <BoardComponent />
+      <BoardComponent board={board} setBoard={setBoard} />
     </div>
   );
 };
